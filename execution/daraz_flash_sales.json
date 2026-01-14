@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Flash Sale Product 261138923",
+        "flash_sale_price": 1360.0,
+        "original_price": 1360.0,
+        "discount_percentage": 51,
+        "product_url": "https://www.daraz.pk/products/-i261138923-s3892390258.html",
+        "image_url": "https://img.drz.lazcdn.com/static/pk/p/e291a80b66289b9007edc83edeee1694.png_x280q80.png",
+        "item_id": "261138923",
+        "sku_id": "3892390258",
+        "timestamp": "2026-01-13T17:22:33.066243"
+    },
+    {
+        "name": "Flash Sale Product 157068116",
+        "flash_sale_price": 640.0,
+        "original_price": 640.0,
+        "discount_percentage": 76,
+        "product_url": "https://www.daraz.pk/products/-i157068116-s1323244980.html",
+        "image_url": "https://img.drz.lazcdn.com/static/pk/p/2a20d6bebdc7eebf895131f4ba4cbf55.jpg_x280q80.jpg",
+        "item_id": "157068116",
+        "sku_id": "1323244980",
+        "timestamp": "2026-01-13T17:22:33.159424"
+    },
+    {
+        "name": "Flash Sale Product 461817480",
+        "flash_sale_price": 821.0,
+        "original_price": 821.0,
+        "discount_percentage": 79,
+        "product_url": "https://www.daraz.pk/products/-i461817480-s2957547118.html",
+        "image_url": "https://img.drz.lazcdn.com/static/pk/p/1c9d29ad3adfc9d2b4e9966b57366fb3.jpg_x280q80.jpg",
+        "item_id": "461817480",
+        "sku_id": "2957547118",
+        "timestamp": "2026-01-13T17:22:33.199905"
+    },
+    {
+        "name": "Flash Sale Product 338981367",
+        "flash_sale_price": 927.0,
+        "original_price": 927.0,
+        "discount_percentage": 74,
+        "product_url": "https://www.daraz.pk/products/-i338981367-s2504612274.html",
+        "image_url": "https://img.drz.lazcdn.com/static/pk/p/6afb9d73601c6c8bc1b66767eeedf4ac.png_x280q80.png",
+        "item_id": "338981367",
+        "sku_id": "2504612274",
+        "timestamp": "2026-01-13T17:22:33.249649"
+    },
+    {
+        "name": "Flash Sale Product 483740672",
+        "flash_sale_price": 761.0,
+        "original_price": 761.0,
+        "discount_percentage": 62,
+        "product_url": "https://www.daraz.pk/products/-i483740672-s3932945944.html",
+        "image_url": "https://img.drz.lazcdn.com/g/kf/S74300641b552499cae1ea77cb20c30fbb.jpg_x280q80.jpg",
+        "item_id": "483740672",
+        "sku_id": "3932945944",
+        "timestamp": "2026-01-13T17:22:33.300782"
+    },
+    {
+        "name": "Flash Sale Product 319444203",
+        "flash_sale_price": 648.0,
+        "original_price": 648.0,
+        "discount_percentage": 74,
+        "product_url": "https://www.daraz.pk/products/-i319444203-s3301576630.html",
+        "image_url": "https://img.drz.lazcdn.com/static/pk/p/7a790798eeef57875a89585dfaaa68e4.png_x280q80.png",
+        "item_id": "319444203",
+        "sku_id": "3301576630",
+        "timestamp": "2026-01-13T17:22:33.355278"
+    },
+    {
+        "name": "Flash Sale Product 246436939",
+        "flash_sale_price": 2789.0,
+        "original_price": 2789.0,
+        "discount_percentage": 67,
+        "product_url": "https://www.daraz.pk/products/-i246436939-s3927781090.html",
+        "image_url": "https://img.drz.lazcdn.com/g/kf/Scc243f067aee4440889d7a9907b0e9173.png_x280q80.png",
+        "item_id": "246436939",
+        "sku_id": "3927781090",
+        "timestamp": "2026-01-13T17:22:33.400743"
+    }
+]
