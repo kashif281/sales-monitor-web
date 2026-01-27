@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Copy execution requirements first to leverage cache
 COPY execution/requirements.txt ./execution/
-RUN pip3 install --no-cache-dir -r execution/requirements.txt
+RUN pip3 install --no-cache-dir -r execution/requirements.txt --break-system-packages
 
 # Copy web files
 COPY web/package*.json ./web/
