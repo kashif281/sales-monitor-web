@@ -18,8 +18,8 @@ COPY execution/requirements.txt ./execution/
 RUN pip3 install --no-cache-dir -r execution/requirements.txt --break-system-packages
 
 # Copy web files
-COPY web/package*.json ./web/
 WORKDIR /app/web
+COPY web/package.json web/package-lock.json* ./
 RUN npm install
 
 # Copy the rest of the code
