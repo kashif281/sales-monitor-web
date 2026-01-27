@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1769494291763,
+    "email": "pufoqolu@mailinator.com",
+    "category": "Electronics",
+    "minDiscount": 70,
+    "keywords": "",
+    "createdAt": "2026-01-27T06:11:31.764Z"
+  },
+  {
+    "id": 1769497270417,
+    "email": "jyte@mailinator.com",
+    "category": "Electronics",
+    "minDiscount": 70,
+    "keywords": "",
+    "createdAt": "2026-01-27T07:01:10.417Z"
+  },
+  {
+    "id": 1769497644234,
+    "email": "kufaq@mailinator.com",
+    "category": "All",
+    "minDiscount": 20,
+    "keywords": "",
+    "createdAt": "2026-01-27T07:07:24.234Z"
+  }
+]

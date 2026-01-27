@@ -10,13 +10,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
+import os
+
 # Configurations
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CATEGORIES = {
     "Mobiles": "https://priceoye.pk/mobiles",
     "Wireless Earbuds": "https://priceoye.pk/wireless-earbuds",
     "Smart Watches": "https://priceoye.pk/smart-watches"
 }
-OUTPUT_FILE = "priceoye_electronics.json"
+OUTPUT_FILE = os.path.join(BASE_DIR, "priceoye_electronics.json")
 PAGES_PER_CATEGORY = 2 # Keeping it conservative to avoid blocks
 
 def setup_driver():

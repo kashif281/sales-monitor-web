@@ -10,9 +10,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
+import os
+
 # Configurations
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_URL = "https://www.daraz.pk/shop-electronics/"
-OUTPUT_FILE = "daraz_electronics.json"
+OUTPUT_FILE = os.path.join(BASE_DIR, "daraz_electronics.json")
 MIN_DISCOUNT = 25
 PAGES_TO_SCRAPE = 3
 
@@ -191,8 +194,19 @@ def scrape_page(driver, page_num):
             html_content = card.get_attribute("outerHTML")
             if "mall" in html_content.lower(): badges.append("Daraz Mall")
             
+            # Simple Categorization
+            category = "Electronics"
+            lower_name = name.lower()
+            if any(kw in lower_name for kw in ['phone', 'mobile', 'smartphone', 'iphone', 'samsung galaxy', 'redmi', 'infinix', 'tecno', 'realme', 'vivo', 'oppo']):
+                category = "Mobile"
+            elif any(kw in lower_name for kw in ['earbud', 'headphone', 'airpod', 'tws', 'bluetooth']):
+                category = "Wireless Earbuds"
+            elif any(kw in lower_name for kw in ['watch', 'smartwatch', 'band']):
+                category = "Smart Watches"
+
             products.append({
                 "name": name,
+                "category": category,
                 "brand": "Unknown",
                 "sale_price": sale_price,
                 "original_price": orig_price,

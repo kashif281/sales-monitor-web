@@ -1,0 +1,23 @@
+# Git
+.git
+.gitignore
+
+# Node
+web/node_modules
+web/.next
+web/out
+web/build
+
+# Python
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+execution/venv
+.env
+
+# Debug/Temporary files
+execution/*.html
+execution/*.png
+execution/*.json
+.tmp/
