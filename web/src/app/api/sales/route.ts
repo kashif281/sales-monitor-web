@@ -14,23 +14,57 @@ export async function GET() {
         const darazAffId = process.env.DARAZ_AFFILIATE_ID || "";
         const priceoyeAffId = process.env.PRICEOYE_AFFILIATE_ID || "";
 
-        // 1. Process CSV Data
+        // 1. Process CSV Data (clothing and shoes)
         if (fs.existsSync(csvPath)) {
-            const fileContent = fs.readFileSync(csvPath, 'utf-8');
-            const lines = fileContent.trim().split('\n');
-            if (lines.length >= 2) {
-                const headers = lines[0].split(',').map(h => h.trim());
-                const csvData = lines.slice(1).map(line => {
-                    const values = line.split(',');
-                    const entry: any = {};
-                    headers.forEach((header, index) => {
-                        const val = values[index] ? values[index].trim() : '';
-                        entry[header] = val;
-                    });
-                    return entry;
-                });
-                allData = [...csvData];
+            try {
+                const fileContent = fs.readFileSync(csvPath, 'utf-8');
+                const lines = fileContent.trim().split('\n');
+                if (lines.length >= 2) {
+                    // Parse CSV properly handling quoted fields
+                    const parseCSVLine = (line: string): string[] => {
+                        const result: string[] = [];
+                        let current = '';
+                        let inQuotes = false;
+                        
+                        for (let i = 0; i < line.length; i++) {
+                            const char = line[i];
+                            if (char === '"') {
+                                inQuotes = !inQuotes;
+                            } else if (char === ',' && !inQuotes) {
+                                result.push(current.trim());
+                                current = '';
+                            } else {
+                                current += char;
+                            }
+                        }
+                        result.push(current.trim());
+                        return result;
+                    };
+                    
+                    const headers = parseCSVLine(lines[0]);
+                    const csvData = lines.slice(1)
+                        .filter(line => line.trim().length > 0)
+                        .map(line => {
+                            const values = parseCSVLine(line);
+                            const entry: any = {};
+                            headers.forEach((header, index) => {
+                                let val = values[index] ? values[index].replace(/^"|"$/g, '').trim() : '';
+                                entry[header] = val;
+                            });
+                            // Normalize discount percentage format to match electronics data (add - prefix if missing)
+                            if (entry["Discount Percentage"] && !entry["Discount Percentage"].startsWith('-')) {
+                                entry["Discount Percentage"] = `-${entry["Discount Percentage"]}`;
+                            }
+                            return entry;
+                        });
+                    allData = [...csvData];
+                    console.log(`Loaded ${csvData.length} items from CSV (clothing/shoes)`);
+                }
+            } catch (csvError) {
+                console.error("Error parsing CSV:", csvError);
             }
+        } else {
+            console.log(`CSV file not found at ${csvPath}. Run scraper to generate clothing/shoes data.`);
         }
 
         // 2. Process Daraz JSON Data
