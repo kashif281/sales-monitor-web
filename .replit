@@ -1,0 +1,10 @@
+# Replit configuration for Dockerfile deployment
+language = "dockerfile"
+
+# Skip automatic package installation - Dockerfile handles everything
+[packager]
+ignoredPackages = ["*"]
+
+# No pre-build steps needed
+[build]
+command = "echo 'Build handled by Dockerfile'"

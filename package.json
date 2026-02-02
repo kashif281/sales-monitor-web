@@ -1,0 +1,9 @@
+{
+  "name": "antigravity-root",
+  "version": "1.0.0",
+  "description": "Root package.json for Replit compatibility - actual build happens in Dockerfile",
+  "private": true,
+  "scripts": {
+    "install": "echo 'Skipping root install - Dockerfile handles build'"
+  }
+}
