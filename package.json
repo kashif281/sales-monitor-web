@@ -4,6 +4,12 @@
   "description": "Root package.json for Replit compatibility - actual build happens in Dockerfile",
   "private": true,
   "scripts": {
-    "install": "echo 'Skipping root install - Dockerfile handles build'"
+    "postinstall": "echo 'Root install skipped - Dockerfile handles build'",
+    "build": "echo 'Build handled by Dockerfile'",
+    "start": "echo 'Start handled by Dockerfile'"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
