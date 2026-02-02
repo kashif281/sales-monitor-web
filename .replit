@@ -4,8 +4,9 @@
 # Language and runtime
 language = "dockerfile"
 
-# Run command (used for development)
-run = "cd web && npm run dev"
+# Run command (production mode for deployment)
+# Note: For local development, you can manually run "cd web && npm run dev" in the shell
+run = "cd web && npm run build && npm start"
 
 # Entrypoint for deployment
 entrypoint = "npm start"
