@@ -1,23 +1,51 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Next.js
+web/.next
+web/out
+web/.env*.local
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Git
 .git
 .gitignore
 
-# Node
-web/node_modules
-web/.next
-web/out
-web/build
+# Temporary files
+.tmp
+*.log
+*.tmp
 
-# Python
-**/__pycache__
-**/*.pyc
-**/*.pyo
-**/*.pyd
-execution/venv
-.env
+# Test files
+*.test.js
+*.spec.js
 
-# Debug/Temporary files
-execution/*.html
-execution/*.png
-execution/*.json
-.tmp/
+# Documentation
+*.md
+README.md
+
+# Replit
+.replit

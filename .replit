@@ -1,0 +1,25 @@
+# Replit configuration file
+# This helps Replit understand how to deploy your application
+
+# Language and runtime
+language = "dockerfile"
+
+# Run command (used for development)
+run = "cd web && npm run dev"
+
+# Entrypoint for deployment
+entrypoint = "npm start"
+
+# Working directory for deployment
+[deploy]
+workingDir = "/app/web"
+publicDir = "/app/web/.next"
+
+# Environment variables
+[env]
+PORT = "3000"
+NODE_ENV = "production"
+
+# Build configuration
+[build]
+command = "cd web && npm install && npm run build"

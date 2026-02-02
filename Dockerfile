@@ -17,26 +17,37 @@ WORKDIR /app
 COPY execution/requirements.txt ./execution/
 RUN pip3 install --no-cache-dir -r execution/requirements.txt --break-system-packages
 
-# Copy web files
+# Copy web package files first for better caching
 WORKDIR /app/web
-COPY web/package.json ./
-COPY web/package-lock.json* ./
-RUN npm install
+COPY web/package.json web/package-lock.json* ./
+RUN npm ci --only=production=false
 
-# Copy the rest of the code
-WORKDIR /app
-COPY . .
+# Copy web source files (excluding node_modules)
+COPY web/tsconfig.json web/next.config.ts web/postcss.config.mjs web/eslint.config.mjs ./
+COPY web/src ./src
+COPY web/public ./public
 
 # Build Next.js
-WORKDIR /app/web
 RUN npm run build
+
+# Copy the rest of the project files (execution scripts, directives, etc.)
+WORKDIR /app
+COPY execution ./execution
+COPY directives ./directives
+COPY .env* ./
+
+# Create .tmp directory for runtime data (if it doesn't exist)
+RUN mkdir -p .tmp
 
 # Set environment variables for Selenium to find Chromium in Linux
 ENV CHROME_BIN=/usr/bin/chromium
 ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
+ENV PORT=3000
+ENV NODE_ENV=production
 
-# Expose port
+# Expose port (Replit will use PORT env var)
 EXPOSE 3000
 
-# Start Next.js
+# Start Next.js (Next.js automatically reads PORT env var)
+WORKDIR /app/web
 CMD ["npm", "start"]
