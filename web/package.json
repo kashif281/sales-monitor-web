@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node api.js && next dev",
     "build": "next build",
-    "prestart": "node ensure-build.js",
-    "start": "next start",
-    "start:safe": "sh start.sh",
+    "start": "node api.js && next start -p ${PORT:-3000}",
+    "start:safe": "node api.js && sh start.sh",
     "lint": "eslint"
   },
   "dependencies": {

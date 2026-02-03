@@ -1,6 +1,7 @@
 .tmp/
-.env
 credentials.json
 token.json
 __pycache__/
 *.pyc
+config.bat
+node_modules
