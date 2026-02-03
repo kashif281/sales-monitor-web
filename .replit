@@ -4,7 +4,3 @@ language = "dockerfile"
 # Disable automatic package installation
 [packager]
 ignoredPackages = ["*"]
-
-# Ensure Dockerfile CMD is used, don't override
-[deploy]
-run = []
