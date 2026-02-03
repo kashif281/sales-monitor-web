@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { exec } from 'child_process';
 import path from 'path';
 
-export async function POST() {
+export async function POST(): Promise<NextResponse> {
     try {
         // Path to the python script relative to web/ root
         const scriptPath = path.resolve(process.cwd(), '../execution/scrape_retailers.py');
@@ -10,7 +10,7 @@ export async function POST() {
 
         console.log(`Running scraper at: ${scriptPath}`);
 
-        return new Promise((resolve) => {
+        return new Promise<NextResponse>((resolve) => {
             const darazScript = path.resolve(process.cwd(), '../execution/scrape_daraz_electronics.py');
 
             console.log(`Running main scraper: ${scriptPath}`);

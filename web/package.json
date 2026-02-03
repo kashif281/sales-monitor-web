@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prestart": "node ensure-build.js",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "start:safe": "sh start.sh",
     "lint": "eslint"
   },

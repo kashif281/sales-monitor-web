@@ -3,14 +3,12 @@ set -e
 
 cd /app/web
 
-# Check if .next directory exists and has BUILD_ID
+# Verify .next exists (should be built during Docker build)
 if [ ! -d .next ] || [ ! -f .next/BUILD_ID ]; then
-  echo "⚠️  .next directory not found or incomplete. Building Next.js application..."
+  echo "❌ ERROR: .next directory not found! This should have been built during Docker build."
+  echo "Building now as fallback (this may cause startup delay)..."
   npm run build
-  echo "✅ Build completed successfully"
-else
-  echo "✅ .next directory exists, skipping build"
 fi
 
-echo "🚀 Starting Next.js server..."
+echo "🚀 Starting Next.js server on port ${PORT:-3000}..."
 exec npm start
